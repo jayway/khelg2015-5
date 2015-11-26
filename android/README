@@ -31,7 +31,8 @@ Use a class to format your text:
 <import type="com.example.MyStringUtils"/>
 android:text="@{MyStringUtils.capitalize(user.lastName)}"
 
-
+Use a regex inline to format your text
+android:text="@{user.lastName.replace(",",".")}"
 
 
 
