@@ -1,4 +1,4 @@
-Setup of android databindings
+Step1, setup of android databindings
 
 Follow the guide on:
 http://developer.android.com/tools/data-binding/guide.html
@@ -18,6 +18,24 @@ android {
 
 Use Android Studio 1.3 or later.
 
-Thats all.
+Step 2, bind a String to a TextView
+
+Step 3, 
+
+bind a handler to handle click events
+
+Let visibility of a view depend on a boolean:
+android:visibility="@{user.isAdult ? View.VISIBLE : View.GONE}"
+
+Use a class to format your text:
+<import type="com.example.MyStringUtils"/>
+android:text="@{MyStringUtils.capitalize(user.lastName)}"
+
+
+
+
+
+
+
 
 
