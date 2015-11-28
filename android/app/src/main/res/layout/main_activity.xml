@@ -8,7 +8,7 @@
 
         <variable
             name="data"
-            type="se.kjellstrand.k_dag52015databinding.Data" />
+            type="se.jayway.databinding.Data" />
     </data>
 
     <RelativeLayout
@@ -19,7 +19,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="se.kjellstrand.k_dag52015databinding.MainActivity"
+        tools:context="se.jayway.databinding.MainActivity"
         tools:showIn="@layout/main_activity">
 
         <TextView

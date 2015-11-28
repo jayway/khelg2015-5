@@ -1,4 +1,4 @@
-package se.kjellstrand.k_dag52015databinding;
+package se.jayway.databinding;
 
 import org.junit.Test;
 

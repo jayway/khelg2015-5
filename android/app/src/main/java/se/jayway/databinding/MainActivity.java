@@ -1,10 +1,10 @@
-package se.kjellstrand.k_dag52015databinding;
+package se.jayway.databinding;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import se.kjellstrand.k_dag52015databinding.databinding.MainActivityBinding;
+import se.jayway.databinding.databinding.MainActivityBinding;
 
 public class MainActivity extends AppCompatActivity {
 
