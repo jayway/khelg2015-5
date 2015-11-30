@@ -20,13 +20,13 @@ Use Android Studio 1.3 or later.
 
 What can we do with databindings?
 
-Bind a String to a TextView.
+Bind a String to a TextView. 
 
-Let visibility of a view depend on a boolean using the ternary operator.
+Let visibility of a view depend on a boolean using the ternary operator. Use an "<import type="android.view.View"/>" tag for the View class.
 
 Use a util class to format the text is the textview.
 
-Make the String observable, there are three way to do this supported by the Databinding lib.
+Make the String observable, there are three way to do this supported by the Databinding lib, try atleast two.
 
 Bind a handler to a views onClick tag/method to handle click events.
 
