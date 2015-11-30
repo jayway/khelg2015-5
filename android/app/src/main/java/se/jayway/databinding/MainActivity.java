@@ -1,10 +1,10 @@
 package se.jayway.databinding;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import se.jayway.databinding.databinding.MainActivityBinding;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,8 +13,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        MainActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
-        Data data = new Data();
-        binding.setData(data);
+        final Data data = new Data();
+
+        Timer myTimer = new Timer();
+        myTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        data.setTime(System.currentTimeMillis());
+                    }
+                });
+            }
+        }, 0, 1000);
     }
 }
