@@ -79,10 +79,14 @@ Now to see that the data.map actually is observed, lets change the timer in Main
         }, 0, 1000);
 and now you should once again see time being displayed ino the_view.
 
-Next step is binding a List using a adapter. To get a easy start with an adaptor and list in place checkout:
+Next step is binding to a RecyclerView, checkout the branch binding_to_a_adapter.
 git checkout binding_to_a_adapter
 
+Look in MainActivity and you will see:
+    int index = (int) ((System.currentTimeMillis() / 1000) % Data.list.size());
+    Data.list.set(index, Data.list.get(index) + ".");
+in the timer class, this will change Data.list every second. 
 
+Your mission Android developer, should you choose to accept it, is to bind the Data.list to the RecyclerView so that the RecyclerView updates whenever the Data.list changes.
 
-
-
+As always, should you or anyone in your Android Team be caught or killed, the Secretary will disavow any knowledge of your actions. This repo will self-destruct in five seconds. Good luck.
