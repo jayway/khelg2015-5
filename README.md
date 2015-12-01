@@ -22,8 +22,8 @@ Use Android Studio 1.3 or later.
 
 What can we do with Data Bindings?
 
-Bind Data.time to the_view (this is a TextView in main_activity.xml). Have a look at the link if you are 
-not sure on what to do --> http://developer.android.com/tools/data-binding/guide.html#writing_expressions
+Bind Data.time to the_view (this is a TextView in main_activity.xml).
+http://developer.android.com/tools/data-binding/guide.html#writing_expressions
 
 Use "StringUtil.format()" to format the Data.time before putting it into the_view.
 
