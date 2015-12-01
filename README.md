@@ -8,14 +8,14 @@ The important parts are:
 Android Plugin for Gradle 1.5.0-beta3 or higher is required.
 
 Add the dataBinding element to your build.gradle file in the app module.
-
+```
 android {
     ....
     dataBinding {
         enabled = true
     }
 }
-
+```
 Use Android Studio 1.3 or later.
 
 ----------------------------------
@@ -44,11 +44,13 @@ corresponds to key "1" in data.map.
 the_view should now display "dies Lūnae".
 
 Make data.index observable and change data.setTime() to look like:
+```
     public void setTime(long time) {
         this.time = time;
         setIndex(time);
         notifyPropertyChanged(se.jayway.databinding.BR.time);
     }
+```
 this will make a call to update the index field when time is updated by our timer in MainActivity.
 
 Change the key used in the_view to be data.index. the_view should now rotate through the values
@@ -66,25 +68,29 @@ Change data.map from HashMap to ObservableArrayMap, this will make the whole map
 changes we make to the map should be reflected in the ui instantaneous.
 
 Now to see that the data.map actually is observed, lets change the timer in MainActivity to:
-        myTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                MainActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        data.map.setValueAt(data.map.indexOfKey("1"), StringUtil.format(System.currentTimeMillis()));
-                    }
-                });
-            }
-        }, 0, 1000);
+```
+    myTimer.schedule(new TimerTask() {
+        @Override
+        public void run() {
+            MainActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    data.map.setValueAt(data.map.indexOfKey("1"), StringUtil.format(System.currentTimeMillis()));
+                }
+            });
+        }
+    }, 0, 1000);
+```
 and now you should once again see time being displayed ino the_view.
 
 Next step is binding to a RecyclerView, checkout the branch binding_to_a_adapter.
 git checkout binding_to_a_adapter
 
 Look in MainActivity and you will see:
+```
     int index = (int) ((System.currentTimeMillis() / 1000) % Data.list.size());
     Data.list.set(index, Data.list.get(index) + ".");
+```
 in the timer class, this will change Data.list every second. 
 
 Your mission Android developer, should you choose to accept it, is to bind the Data.list to the RecyclerView so that the RecyclerView updates whenever the Data.list changes.
