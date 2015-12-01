@@ -5,13 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "RecyclerViewExample";
     private RecyclerView mRecyclerView;
     private MyAdapter mAdapter;
 
@@ -27,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MyAdapter(this, Data.list);
         mRecyclerView.setAdapter(mAdapter);
 
-        final Data data = new Data();
-
         Timer myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
             @Override
@@ -36,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        int index = (int) ((System.currentTimeMillis() / 1000) % Data.list.size());
+                        Data.list.set(index, Data.list.get(index) + ".");
                     }
                 });
             }
