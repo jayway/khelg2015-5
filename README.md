@@ -33,6 +33,7 @@ enough for the later steps of this lab.
 
 Let visibility of the_view depend on a boolean expression using the ternary operator.
 the_view should only be visible if the expression "(data.time / 1000) % 3 == 0" is true.
+(Assumption was made that you name the variable that holds the Data object, "data" in the xml).
 
 Bind a handler to the onClick tag of the to handle click events. Change some property of the_view
 on every click, for example you could set the background to a random color when the_view is clicked.
