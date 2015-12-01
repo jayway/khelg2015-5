@@ -14,9 +14,9 @@ import java.util.List;
  */
 
 public class MyAdapter extends RecyclerView.Adapter<CustomViewHolder> {
-    private List<WeekDay> mWeekDayList;
+    private List<String> mWeekDayList;
 
-    public MyAdapter(Context context, List<WeekDay> weekDays) {
+    public MyAdapter(Context context, List<String> weekDays) {
         this.mWeekDayList = weekDays;
     }
 
@@ -30,8 +30,8 @@ public class MyAdapter extends RecyclerView.Adapter<CustomViewHolder> {
 
     @Override
     public void onBindViewHolder(CustomViewHolder customViewHolder, int i) {
-        WeekDay feedItem = mWeekDayList.get(i);
-        customViewHolder.mTextView.setText(Html.fromHtml(feedItem.getTitle()));
+        String weekDay = mWeekDayList.get(i);
+        customViewHolder.mTextView.setText(Html.fromHtml(weekDay));
     }
 
     @Override

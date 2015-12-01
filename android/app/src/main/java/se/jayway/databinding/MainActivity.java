@@ -12,7 +12,6 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "RecyclerViewExample";
-    private List<WeekDay> mFeedsList;
     private RecyclerView mRecyclerView;
     private MyAdapter mAdapter;
 
@@ -25,15 +24,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mFeedsList = new ArrayList<>();
-
-        for (String s : Data.map.values()) {
-            WeekDay weekDay = new WeekDay();
-            weekDay.setTitle(s);
-            mFeedsList.add(weekDay);
-        }
-
-        mAdapter = new MyAdapter(this, mFeedsList);
+        mAdapter = new MyAdapter(this, Data.list);
         mRecyclerView.setAdapter(mAdapter);
 
         final Data data = new Data();
