@@ -84,8 +84,9 @@ Now to see that the data.map actually is observed, lets change the timer in Main
 and now you should once again see time being displayed ino the_view.
 
 Next step is binding to a RecyclerView, checkout the branch binding_to_a_adapter.
+```
 git checkout binding_to_a_adapter
-
+```
 Look in MainActivity and you will see:
 ```
     int index = (int) ((System.currentTimeMillis() / 1000) % Data.list.size());
