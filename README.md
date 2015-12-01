@@ -22,7 +22,7 @@ Use Android Studio 1.3 or later.
 
 What can we do with Data Bindings?
 
-Bind a long (use "time" in Data.java) to the_view (this is a TextView in main_activity.xml).
+Bind "time" in Data.java to the_view (this is a TextView in main_activity.xml).
 
 Use "StringUtil.format()" to format the text in the_view.
 
