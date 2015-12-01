@@ -12,9 +12,9 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "RecyclerViewExample";
-    private List<WeekDay> feedsList;
+    private List<WeekDay> mFeedsList;
     private RecyclerView mRecyclerView;
-    private MyAdapter adapter;
+    private MyAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +25,16 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        feedsList = new ArrayList<>();
+        mFeedsList = new ArrayList<>();
+
         for (String s : Data.map.values()) {
             WeekDay weekDay = new WeekDay();
             weekDay.setTitle(s);
-            feedsList.add(weekDay);
+            mFeedsList.add(weekDay);
         }
 
-        adapter = new MyAdapter(this, feedsList);
-        mRecyclerView.setAdapter(adapter);
+        mAdapter = new MyAdapter(this, mFeedsList);
+        mRecyclerView.setAdapter(mAdapter);
 
         final Data data = new Data();
 
@@ -44,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        data.setTime(System.currentTimeMillis());
                     }
                 });
             }
