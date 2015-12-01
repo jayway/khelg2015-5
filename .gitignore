@@ -1,2 +1,5 @@
 .idea/*
 *.idea/*
+android/.idea/compiler.xml android/.idea/copyright android/.idea/encodings.xml android/.idea/gradle.xml android/.idea/libraries android/.idea/misc.xml android/.idea/modules.xml android/.idea/runConfigurations.xml android/.idea/vcs.xml android/.idea/workspace.xml
+android/.idea/compiler.xml android/.idea/copyright android/.idea/encodings.xml android/.idea/gradle.xml android/.idea/libraries android/.idea/misc.xml android/.idea/modules.xml android/.idea/runConfigurations.xml android/.idea/vcs.xml android/.idea/workspace.xml
+android/.idea
