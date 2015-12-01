@@ -79,8 +79,8 @@ Now to see that the data.map actually is observed, lets change the timer in Main
         }, 0, 1000);
 and now you should once again see time being displayed ino the_view.
 
-Next step is Lists and adapters, this is where Data Binding becomes really powerful!
-
+Next step is binding a List using a adapter. To get a easy start with an adaptor and list in place checkout:
+git checkout binding_to_a_adapter
 
 
 
