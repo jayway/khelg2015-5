@@ -1,11 +1,8 @@
 package se.jayway.databinding;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
-
 import java.util.HashMap;
 
-public class Data extends BaseObservable {
+public class Data {
 
     static public HashMap<String, String> map;
 
@@ -21,26 +18,22 @@ public class Data extends BaseObservable {
     }
 
     public long time = 0;
-    public String shortTime = "0";
+    public String index = "0";
 
-    @Bindable
     public long getTime() {
         return time;
     }
 
     public void setTime(long time) {
         this.time = time;
-        setShortTime(time);
-        notifyPropertyChanged(se.jayway.databinding.BR.time);
+        setIndex(time);
     }
 
-    @Bindable
-    public String getShortTime() {
-        return shortTime;
+    public String getIndex() {
+        return index;
     }
 
-    public void setShortTime(long time) {
-        this.shortTime = Integer.toString((int) (time / 1000 % 8));
-        notifyPropertyChanged(se.jayway.databinding.BR.shortTime);
+    public void setIndex(long time) {
+        this.index = Integer.toString((int) (time / 1000 % 8));
     }
 }
