@@ -94,6 +94,6 @@ Data.list.set(index, Data.list.get(index) + ".");
 ```
 in the timer class, this will change Data.list every second. 
 
-Your mission Android developer, should you choose to accept it, is to bind the Data.list to the RecyclerView so that the RecyclerView updates whenever the Data.list changes.
+Your mission Android developer, should you choose to accept it, is to bind the Data.list to the RecyclerView so that we dont have to do this in code in the future, but rather in the layout file itself.
 
 As always, should you or anyone in your Android Team be caught or killed, the Secretary will disavow any knowledge of your actions. This repo will self-destruct in five seconds. Good luck.
