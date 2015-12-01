@@ -45,11 +45,11 @@ the_view should now display "dies Lūnae".
 
 Make data.index observable and change data.setTime() to look like:
 ```
-    public void setTime(long time) {
-        this.time = time;
-        setIndex(time);
-        notifyPropertyChanged(se.jayway.databinding.BR.time);
-    }
+public void setTime(long time) {
+    this.time = time;
+    setIndex(time);
+    notifyPropertyChanged(se.jayway.databinding.BR.time);
+}
 ```
 this will make a call to update the index field when time is updated by our timer in MainActivity.
 
@@ -69,17 +69,17 @@ changes we make to the map should be reflected in the ui instantaneous.
 
 Now to see that the data.map actually is observed, lets change the timer in MainActivity to:
 ```
-    myTimer.schedule(new TimerTask() {
-        @Override
-        public void run() {
-            MainActivity.this.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    data.map.setValueAt(data.map.indexOfKey("1"), StringUtil.format(System.currentTimeMillis()));
-                }
-            });
-        }
-    }, 0, 1000);
+myTimer.schedule(new TimerTask() {
+    @Override
+    public void run() {
+        MainActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                data.map.setValueAt(data.map.indexOfKey("1"), StringUtil.format(System.currentTimeMillis()));
+            }
+        });
+    }
+}, 0, 1000);
 ```
 and now you should once again see time being displayed ino the_view.
 
@@ -89,8 +89,8 @@ git checkout binding_to_a_adapter
 ```
 Look in MainActivity and you will see:
 ```
-    int index = (int) ((System.currentTimeMillis() / 1000) % Data.list.size());
-    Data.list.set(index, Data.list.get(index) + ".");
+int index = (int) ((System.currentTimeMillis() / 1000) % Data.list.size());
+Data.list.set(index, Data.list.get(index) + ".");
 ```
 in the timer class, this will change Data.list every second. 
 
