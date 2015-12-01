@@ -22,15 +22,14 @@ Use Android Studio 1.3 or later.
 
 What can we do with Data Bindings?
 
-Bind "time" in Data.java to the_view (this is a TextView in main_activity.xml).
+Bind Data.time to the_view (this is a TextView in main_activity.xml). Have a look at the link if you are 
+not sure on what to do --> http://developer.android.com/tools/data-binding/guide.html#writing_expressions
 
-Use "StringUtil.format()" to format the text in the_view.
+Use "StringUtil.format()" to format the Data.time before putting it into the_view.
 
-Make data.time observable, there are three way to do this supported by the Databinding lib. For this
-lab to work further on make the Data object observable. Using a ObservableFields will not be flexible
+Make Data.time observable, there are three way to do this supported by the Databinding lib. For this
+lab to work further on, make the whole Data object observable. Using a ObservableFields will not be flexible
 enough for the later steps of this lab.
-HINT: you need to make data.time observable by annotating the getter with @Bindable
-and letting the setter call: notifyPropertyChanged(se.jayway.databinding.BR.time);
 
 Let visibility of the_view depend on a boolean expression using the ternary operator.
 the_view should only be visible if the expression "(data.time / 1000) % 3 == 0" is true.
