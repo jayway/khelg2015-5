@@ -1,18 +1,22 @@
 package se.jayway.databinding;
 
+import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.TextView;
 
 /**
  * Created by carl on 12/1/15.
  */
 public class CustomViewHolder extends RecyclerView.ViewHolder {
 
-    protected TextView mTextView;
+  private ViewDataBinding mViewDataBinding;
 
-    public CustomViewHolder(View view) {
-        super(view);
-        this.mTextView = (TextView) view.findViewById(R.id.textView);
+    public CustomViewHolder( ViewDataBinding viewDataBinding) {
+        super(viewDataBinding.getRoot());
+
+        mViewDataBinding = viewDataBinding;
+    }
+
+    public ViewDataBinding getViewDataBinding() {
+        return mViewDataBinding;
     }
 }

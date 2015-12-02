@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mAdapter = new MyAdapter(this, Data.list);
+        mAdapter = new MyAdapter(Data.list);
         mRecyclerView.setAdapter(mAdapter);
 
         Timer myTimer = new Timer();
@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         int index = (int) ((System.currentTimeMillis() / 1000) % Data.list.size());
-                        Data.list.set(index, Data.list.get(index) + ".");
+                        MyModel myModel = Data.list.get(index);
+                        myModel.setData(myModel.getData() + ".");
                     }
                 });
             }

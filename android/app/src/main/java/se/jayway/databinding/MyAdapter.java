@@ -1,10 +1,9 @@
 package se.jayway.databinding;
 
-import android.content.Context;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -14,28 +13,28 @@ import java.util.List;
  */
 
 public class MyAdapter extends RecyclerView.Adapter<CustomViewHolder> {
-    private List<String> mWeekDayList;
+    private List<MyModel> mMyModels;
 
-    public MyAdapter(Context context, List<String> weekDays) {
-        this.mWeekDayList = weekDays;
+    public MyAdapter(List<MyModel> myModels) {
+        mMyModels = myModels;
     }
 
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.my_text_layout, null);
-
-        CustomViewHolder viewHolder = new CustomViewHolder(view);
-        return viewHolder;
+        ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.my_text_layout, viewGroup, false);
+        
+        return new CustomViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(CustomViewHolder customViewHolder, int i) {
-        String weekDay = mWeekDayList.get(i);
-        customViewHolder.mTextView.setText(Html.fromHtml(weekDay));
+        ViewDataBinding viewDataBinding = customViewHolder.getViewDataBinding();
+
+        viewDataBinding.setVariable(se.jayway.databinding.BR.mymodel, mMyModels.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return (null != mWeekDayList ? mWeekDayList.size() : 0);
+        return (null != mMyModels ? mMyModels.size() : 0);
     }
 }
