@@ -1,12 +1,10 @@
 package se.jayway.databinding;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
@@ -24,20 +22,18 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MyAdapter(Data.list);
         mRecyclerView.setAdapter(mAdapter);
 
-        Timer myTimer = new Timer();
-        myTimer.schedule(new TimerTask() {
+        final Handler h;
+
+        h = new Handler();
+        h.postDelayed(new Runnable() {
             @Override
             public void run() {
-                MainActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        int index = (int) ((System.currentTimeMillis() / 1000) % Data.list.size());
-                        MyModel myModel = Data.list.get(index);
-                        myModel.setData(myModel.getData() + ".");
-                    }
-                });
+                int index = (int) ((System.currentTimeMillis() / 1000) % Data.list.size());
+                MyModel myModel = Data.list.get(index);
+                myModel.setData(myModel.getData() + ".");
+                h.postDelayed(this, 1000);
             }
-        }, 0, 1000);
+        }, 1000);
 
     }
 }

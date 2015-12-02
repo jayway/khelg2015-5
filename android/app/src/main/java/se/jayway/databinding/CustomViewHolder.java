@@ -14,6 +14,7 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
         super(viewDataBinding.getRoot());
 
         mViewDataBinding = viewDataBinding;
+        mViewDataBinding.executePendingBindings();
     }
 
     public ViewDataBinding getViewDataBinding() {
